@@ -10,6 +10,6 @@ function L5draw_group2(jc, grip)
 %            radians.
 %     grip - A number between 0cm and 5cm represention the distance between
 %            the two ends of the gripper.
-
+    LynxApp(jc)
 end
 
