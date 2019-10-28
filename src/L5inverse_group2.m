@@ -12,6 +12,50 @@ function jc = L5inverse_group2(eec)
 % Returns:
 %     jc  - 5x1 colum matrix containing the angles for joints 1-5 in 
 %           radians.
+    d1 = 8.415;
+    a2 = 11.811;
+    a3 = 12.4968;
+    d5 = 8.3388;
+    
+    x = eec(1);
+    y = eec(2);
+    z = eec(3);
+    
+    % pitch
+    th = eec(4) - pi / 2;
+    % roll
+    phi = eec(5);
+    
+    R = [
+        cos(phi)*cos(th), -sin(phi), cos(phi)*sin(th)
+        sin(phi)*cos(th),  cos(phi), sin(phi)*sin(th)
+       -sin(th),           0,        cos(th)
+    ];
 
+    px = x - d5 * R(1, 3)
+    py = y - d5 * R(2, 3)
+    pz = z - d5 * R(3, 3)
+    
+    % Eq (3.43)
+    t1 = atan2(py, px);
+    
+    % Eq (3.44)
+    D = (px ^ 2 + py ^ 2 + (pz - d1) ^ 2 - a2 ^ 2 - a3 ^ 2) / (2 * a2 * a3);
+    
+    % Eq (3.45)
+%     t3 = atan2(D, sqrt(1 - D ^ 2));
+    t3 = atan2(-sqrt(1 - D ^ 2), D);
+    
+    % Eq (3.46)
+%     t2 = atan2(sqrt(px ^ 2 + py ^ 2), pz - d1) - atan2(a2 + a3 * cos(t3), a3 * sin(t3));
+    t2 = atan2(pz - d1, sqrt(px ^ 2 + py ^ 2)) - atan2(a3 * sin(t3), a2 + a3 * cos(t3));
+    
+    u32 = sin(t1)*R(1, 2) - cos(t1)*R(2, 2);
+    u23 = -cos(t1)*sin(t2 + t3)*R(1, 3)-sin(t1)*sin(t2 + t3)*R(2, 3)+cos(t2 + t3)*R(3, 3);
+    
+    t4 = atan2(sqrt(1 - u23 ^ 2), u23);
+    t5 = atan2(sqrt(1 - u32 ^ 2), u32);
+    
+    jc = [t1 t2 t3 t4 t5];
 end
 

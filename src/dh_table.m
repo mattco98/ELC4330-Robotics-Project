@@ -7,7 +7,7 @@ function table = dh_table(thetas, grip)
     table(2) = struct('theta', thetas(2), 'd', 0,      'a', 11.811,    'alpha', 0);
     table(3) = struct('theta', thetas(3), 'd', 0,      'a', 12.4968,   'alpha', 0);
     table(4) = struct('theta', thetas(4), 'd', 0,      'a', 0,         'alpha', pi / 2);
-    table(5) = struct('theta', thetas(5), 'd', 4.1846, 'a', 0,         'alpha', 0);
+    table(5) = struct('theta', thetas(5), 'd', 8.3388, 'a', 0,         'alpha', 0);
     
     % NOTE: The next two entries aren't really a part of the formal DH
     % table, they're just here to help with drawing the gripper parts
