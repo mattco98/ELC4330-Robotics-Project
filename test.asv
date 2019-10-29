@@ -6,12 +6,11 @@
 %     rand() * 2 * pi - pi
 % ]';
 
-%  angles = [0 0 0 0 0]* pi / 180;
+% angles = [0 0 0 0 0]
 % angles = [27.986   30.814  -63.544  -40.703  -80.308] * pi / 180;
-angles = [10 60 -40 50 10] * pi / 180;
-% angles = [0   0  10  0  0] * pi / 180;
+% angles = [30 30 -30 30 30] * pi / 180
 
-L5draw_group2(angles, 3.55);
+% L5draw_group2(angles, 3.55);
 
 try 
     ee = L5forward_group2(angles);
