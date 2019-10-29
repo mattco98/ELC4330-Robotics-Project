@@ -7,19 +7,24 @@ function eec = L5forward_group2(jc)
     %
     % Parameters:
     %     jc  - 5x1 colum matrix containing the angles for joints 1-5 in radians.
+    %     Where jc contains [t1, t2, t3, t4, t5], t2 must be postive and t3
+    %     and t4 must be negative.
     %
     % Returns:
     %     eec - The end effector position and orientation, in the format 
     %           [x; y; z; pitch; roll] 
 
+    % In order 
     dh = dh_table(jc, 0);
 
+    % Referencing lib > Transformation.m
     trans = Transformation.b();
 
     for i = 1:5
         trans = trans.dh(dh(i).theta, dh(i).d, dh(i).a, dh(i).alpha);
     end
-
+    
+    % fr is the final T matrix.
     fr = trans.m();
     
     phi = atan2(-fr(2,3), -fr(1, 3)) * 180 / pi
