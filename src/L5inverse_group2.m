@@ -47,7 +47,7 @@ function jc = L5inverse_group2(eec)
     % R05
     R = [
         cos(phi)*cos(theta)*cos(psi) - sin(phi)*sin(psi), -cos(phi)*cos(theta)*sin(psi) - sin(phi)*cos(psi), cos(phi)*sin(theta)
-        sin(phi)*cos(theta)*cos(psi) + cos(phi)*sin(psi), -sin(phi)*cos(theta)*sin(psi) + cos(phi)*cos(psi), sin(phi)*sin(theta)
+        sin(phi)*cos(theta)*cos(psi) - cos(phi)*sin(psi), -sin(phi)*cos(theta)*sin(psi) + cos(phi)*cos(psi), sin(phi)*sin(theta)
         -sin(theta)*cos(psi),                              sin(theta)*sin(psi),                              cos(theta)
     ];
 
@@ -72,7 +72,6 @@ function jc = L5inverse_group2(eec)
     
     t4 = atan2(us, uc);
     t5 = atan2(sqrt(1 - (sin(t1)*R(1, 2) - cos(t1)*R(2, 2)) ^ 2), sin(t1)*R(1, 2) - cos(t1)*R(2, 2));
-    
     
     jc = [t1; t2; t3; t4; t5];
 end

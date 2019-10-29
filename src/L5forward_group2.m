@@ -7,6 +7,8 @@ function eec = L5forward_group2(jc)
     %
     % Parameters:
     %     jc  - 5x1 colum matrix containing the angles for joints 1-5 in radians.
+    %     Where jc contains [t1, t2, t3, t4, t5], t2 must be postive and t3
+    %     and t4 must be negative.
     %
     % Returns:
     %     eec - The end effector position and orientation, in the format 
