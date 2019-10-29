@@ -21,17 +21,18 @@ function jc = L5inverse_group2(eec)
     x = eec(1);
     y = eec(2);
     z = eec(3);
-    
-    % pitch
-    pitch = eec(4) - pi / 2;
-    % roll
-    roll = eec(5);
-    
+
+    phi = atan2(y, x);
+    theta = eec(4);
+    psi = eec(5);
+
     R = [
-        cos(roll)*cos(pitch), -sin(roll), cos(roll)*sin(pitch)
-        sin(roll)*cos(pitch),  cos(roll), sin(roll)*sin(pitch)
-       -sin(pitch),           0,        cos(pitch)
-    ];
+        cos(phi)*cos(theta)*cos(psi) - sin(phi)*sin(psi), -cos(phi)*cos(theta)*sin(psi) - sin(phi)*cos(psi), cos(phi)*sin(theta)
+        sin(phi)*cos(theta)*cos(psi) + cos(phi)*sin(psi), -sin(phi)*cos(theta)*sin(psi) + cos(phi)*cos(psi), sin(phi)*sin(theta)
+        -sin(theta)*cos(psi),                              sin(theta)*sin(psi),                              cos(theta)
+    ]
+
+    fprintf("Theta: %8.3f\nPhi: %8.3f\nPsi: %8.3f\n", theta, phi, psi);
 
     px = x - d5 * R(1, 3);
     py = y - d5 * R(2, 3);
