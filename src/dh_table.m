@@ -1,6 +1,7 @@
 function table = dh_table(thetas, grip)
-    if ~all(size(thetas) == [1 5])
-        error('Input for dh_table function must be a 1x5 column vector.\n\tInput vector size: %dx%d', size(thetas, 1), size(thetas, 2));
+    % Returns the DH struct given five thetas and a grip.
+    if ~all(size(thetas) == [5 1])
+        error('Input for dh_table function must be a 5x1 column vector.\n\tInput vector size: %dx%d', size(thetas, 1), size(thetas, 2));
     end
     
     table(1) = struct('theta', thetas(1), 'd', 8.415,  'a', 0,         'alpha', pi / 2);
