@@ -1,18 +1,3 @@
-% angleToPos(pi / 2, 1)
-% angleToPos(0, 1)
-% angleToPos(pi / 2, 2)
-% angleToPos(2.3562, 2)
-
-%{
-
-900: 45 degrees
-1300: 90
-
-pi / 2: 1350
-0: 530
-
-%}
-
 function pos = angleToPos(angle, joint)
     A = [
         -509.29462694169
@@ -35,11 +20,3 @@ function pos = angleToPos(angle, joint)
     
     pos = round(a * angle) + b;
 end
-
-
-
-
-
-
-
-
