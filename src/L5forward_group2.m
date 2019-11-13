@@ -14,8 +14,8 @@ function eec = L5forward_group2(jc)
     %     eec - The end effector position and orientation, in the format 
     %           [x; y; z; pitch; roll] 
 
-    % Get DH table. Grip doesn't matter
-    dh = dh_table(jc, 0);
+    % Get DH table
+    dh = dh_table(jc);
 
     % The Transformation object is from a library we built specifically to
     % do matrix calculation. For information on how it works, see
