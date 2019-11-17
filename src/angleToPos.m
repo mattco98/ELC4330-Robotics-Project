@@ -1,4 +1,5 @@
 function pos = angleToPos(angle, joint)
+global A B
     A = [
         -509.29462694169
         509.29598869567
