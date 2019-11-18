@@ -1,4 +1,4 @@
-s = serial('COM9', 'Terminator', 'CR', 'BaudRate', 38400);
+s = serial('COM3', 'Terminator', 'CR', 'BaudRate', 38400);
 fopen(s);
 
 while true
