@@ -1,4 +1,4 @@
-s = serial('COM3', 'Terminator', 'CR', 'BaudRate', 38400);
+s = serial('COM6', 'Terminator', 'CR', 'BaudRate', 38400);
 fopen(s);
 
 while true
@@ -15,3 +15,6 @@ end
 fclose(s);
 delete(s);
 clear s;
+
+% pi / 2: 1900
+% - pi / 2: 1000
