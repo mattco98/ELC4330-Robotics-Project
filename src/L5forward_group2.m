@@ -30,15 +30,11 @@ function eec = L5forward_group2(jc)
     % Get the matrix from the transformation object.
     fr = trans.m();
     
-    % Get phi, just to double check. More information about these angles is
-    % in the inverse function. 
-    phi = atan2(-fr(2,3), -fr(1, 3));
-    
     % Eq 2.29
     theta = atan2(-sqrt(1 - fr(3, 3) ^ 2), fr(3, 3));
     
     % Eq 2.33
-    psi = atan2(-fr(3, 2), fr(3, 1));
+    psi = jc(5);
 
     eec = [fr(1:3, 4); theta; psi];
 end
