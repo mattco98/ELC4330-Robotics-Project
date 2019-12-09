@@ -27,7 +27,7 @@ function L5trajectory(varargin)
         return;
     end
     
-    s = serial('COM6', 'Terminator', 'CR', 'BaudRate', 38400);
+    s = serial('COM12', 'Terminator', 'CR', 'BaudRate', 38400);
     fopen(s);
     
     try

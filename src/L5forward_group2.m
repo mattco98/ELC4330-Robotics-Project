@@ -29,9 +29,12 @@ function eec = L5forward_group2(jc)
 
     % Get the matrix from the transformation object.
     fr = trans.m();
-    
+    o = fr(3, 3) ^ 2;
+    if (o > 1)
+        o = 1;
+    end
     % Eq 2.29
-    theta = atan2(-sqrt(1 - fr(3, 3) ^ 2), fr(3, 3));
+    theta = atan2(-sqrt(1 - o), fr(3, 3));
     
     % Eq 2.33
     psi = jc(5);
