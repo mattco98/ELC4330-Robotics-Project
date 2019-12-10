@@ -34,7 +34,7 @@ function L5goto(varargin)
         return;
     end
         
-    s = serial('COM12', 'Terminator', 'CR', 'BaudRate', 38400);
+    s = serial('COM7', 'Terminator', 'CR', 'BaudRate', 38400);
     fopen(s);
 
     cmd = "";
